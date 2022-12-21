@@ -1,5 +1,6 @@
 package com.example.beanvalidation.ds;
 
+import com.example.beanvalidation.validation.NameNotAdmin;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,7 +19,8 @@ public class Employee {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer id;
-    @NotEmpty(message = "FirstName cannot be empty!")
+    @NameNotAdmin(message = "Name cannot be admin!")
+    @NotEmpty(message = "{myapp.validation.msg.firstname}")
     private String firstName;
     @NotEmpty(message = "LastName cannot be empty!")
     private String lastName;
